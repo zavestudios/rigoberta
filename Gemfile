@@ -23,10 +23,10 @@ gem "turbo-rails"
 gem 'webrick'
 
 # Monitoring 
-gem 'yabeda-rails'
-gem 'yabeda-puma-plugin'
-gem 'yabeda-sidekiq'
 gem 'yabeda-prometheus'
+gem 'yabeda-puma-plugin'
+gem 'yabeda-rails'
+gem 'yabeda-sidekiq'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -36,8 +36,8 @@ group :development, :test do
 end
 
 group :development do
-  gem "web-console"
   gem "rack-mini-profiler"
+  gem "web-console"
 end
 
 group :test do

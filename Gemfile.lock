@@ -157,9 +157,9 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.4)
+    prometheus-client (4.2.2)
     psych (5.1.0)
       stringio
-    prometheus-client (4.2.2)
     public_suffix (5.0.3)
     puma (6.3.1)
       nio4r (~> 2.0)
@@ -261,6 +261,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sidekiq (7.1.6)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.14.0)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -339,7 +344,7 @@ DEPENDENCIES
   pg (~> 1.5)
   puma (~> 6.3)
   rack-mini-profiler
-  rails (~> 7.0.7)
+  rails (~> 7.0.6)
   redis (~> 5.0)
   rspec-rails
   rubocop-rails
