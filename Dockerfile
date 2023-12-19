@@ -19,11 +19,13 @@ RUN --mount=type=cache,target=/var/cache/apt \
     libpq-dev \
     postgresql-client \
     libvips \
-    curl
+    curl \
+    vim
 
 ENV LANG=C.UTF-8 \
   BUNDLE_JOBS=4 \
-  BUNDLE_RETRY=3
+  BUNDLE_RETRY=3 \
+  EDITOR=vim
   
 RUN gem update --system && gem install bundler
 

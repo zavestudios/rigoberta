@@ -58,7 +58,7 @@ RUN ./bin/rails assets:precompile
 
 # TODO: This will work in Rails 7.1
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-# RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
 # Final stage for app image
 FROM base
@@ -88,7 +88,6 @@ USER rails:rails
 
 ARG DATABASE_URL
 ARG SECRET_KEY_BASE
-RUN bin/rails db:migrate
 
 # Start Server
 EXPOSE 3000
