@@ -70,6 +70,7 @@ yarn-debug.log*
 !/storage/.keep
 
 /config/master.key
+/config/credentials.yml.enc
 
 # Ignore VSCode workspace config file
 *.code-workspace
