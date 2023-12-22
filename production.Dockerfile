@@ -86,8 +86,8 @@ USER rails:rails
 # Entrypoint prepares the database.
 # ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
-ARG DATABASE_URL
-ARG SECRET_KEY_BASE
+#ARG DATABASE_URL
+#ARG SECRET_KEY_BASE
 
 # Start Server
 EXPOSE 3000
