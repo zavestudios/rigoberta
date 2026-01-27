@@ -107,6 +107,13 @@ docker compose run --rm web bundle update
 docker compose up --build
 ```
 
+### Troubleshooting
+
+- First run can take several minutes while gems install.
+- If you see "The following gems are missing", run `docker compose run --rm web bundle install` and retry `docker compose run --rm web bin/rails db:setup`.
+- If the app can’t connect to Postgres, ensure `.env` exists with `PGHOST=db` and the password matches `POSTGRES_PASSWORD` in `docker-compose.yml`.
+- If port 3000 is in use, change the host port in `docker-compose.yml` (e.g., `3001:3000`).
+
 ## Production build
 
 ```
