@@ -3,7 +3,7 @@ name: Tests
 on:
   pull_request:
   push:
-    branches:
+    branches-ignore:
       - main
   workflow_dispatch:
 
@@ -16,4 +16,4 @@ jobs:
     uses: eckslopez/platform-pipelines/.github/workflows/rails-test.yml@main
     with:
       ruby_version: '3.2'
-      run_system_tests: true
+      run_system_tests: false

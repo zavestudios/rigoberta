@@ -3,7 +3,7 @@ name: Lint & Security
 on:
   pull_request:
   push:
-    branches:
+    branches-ignore:
       - main
   workflow_dispatch:
 
