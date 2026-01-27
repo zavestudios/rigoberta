@@ -3,7 +3,7 @@ name: Security Scan
 on:
   pull_request:
   push:
-    branches:
+    branches-ignore:
       - main
   schedule:
     - cron: "0 9 * * 1" # Mondays 9:00 UTC
