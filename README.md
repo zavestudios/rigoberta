@@ -114,6 +114,13 @@ docker compose up --build
 - If the app can’t connect to Postgres, ensure `.env` exists with `PGHOST=db` and the password matches `POSTGRES_PASSWORD` in `docker-compose.yml`.
 - If port 3000 is in use, change the host port in `docker-compose.yml` (e.g., `3001:3000`).
 
+
+## CI flow
+
+- Feature branches: tests, lint, and security scans run on push and PRs.
+- Main branch: image build runs after merge.
+- Branch protection requires checks before merging to `main`.
+
 ## Production build
 
 ```
