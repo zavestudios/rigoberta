@@ -13,17 +13,17 @@ gem "importmap-rails"
 gem "jbuilder"
 gem "pg", "~> 1.5"
 gem "puma", ">= 6.4.3"
-gem "redis", "~> 5.0"
-gem "sidekiq", "7.1.6"
-gem "stimulus-rails"
 gem "rails", "~> 7.1.6"
+gem "redis", "~> 5.0"
 gem "rexml", ">= 3.3.9"
 gem "rubocop-rails"
+gem "sidekiq", "7.1.6"
 gem "sprockets-rails"
+gem "stimulus-rails"
 gem "turbo-rails"
 gem 'webrick'
 
-# Monitoring 
+# Monitoring
 gem 'yabeda-prometheus'
 gem 'yabeda-puma-plugin'
 gem 'yabeda-rails'
