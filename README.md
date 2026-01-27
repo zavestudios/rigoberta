@@ -1,62 +1,107 @@
 # Rigoberta
 
-This app demonstrates Rails 7 with PostgreSQL, import maps, turbo, stimulus and hotwire, all running in Docker.
+Rigoberta is a narrative reference app: "This is how I build a modern Rails service in 2026." It is intentionally small, teachable, and inspectable. The goal is not features; the goal is clarity and a repeatable standard you can fork.
 
-## Features
+## What this is
 
-* Rails 7
-* Ruby 3
-* Dockerfile and Docker Compose configuration
-* PostgreSQL database
-* Redis
-* GitHub Actions for 
-  * tests
-  * Rubocop for linting
-  * Security checks with [Brakeman](https://github.com/presidentbeef/brakeman) and [bundler-audit](https://github.com/rubysec/bundler-audit)
-  * Building and testing of a production Docker image
-* Dependabot for automated updates
+- A gold-standard Rails 7 service template
+- A living example of CI, security, and Docker-first development
+- A companion to write-ups like "My default Rails stack" and "Rails in a GitOps world"
 
-## Requirements
+## What this is not
 
-Please ensure you are using Docker Compose V2. This project relies on the `docker compose` command, not the previous `docker-compose` standalone program.
+- A product roadmap
+- A grab-bag of experiments
+- A long-lived monolith
 
-https://docs.docker.com/compose/#compose-v2-and-the-new-docker-compose-command
+## Goals
 
-Check your docker compose version with:
+- Be the cleanest, smallest Rails 7 reference service you can fork
+- Keep the stack modern without being trendy
+- Make CI, security, and Docker part of the happy path
+- Document the "why" as much as the "how"
+
+## Tech stack (current)
+
+- Rails 7
+- Ruby 3
+- PostgreSQL
+- Redis
+- Docker + Docker Compose
+
+## Resurrection plan (GitHub issues)
+
+Create these as issues and track them in order:
+
+1) Inventory and docs baseline
+- Update README narrative and scope (this doc)
+- Add goals and non-goals section
+- Document local dev workflow and required env vars
+
+2) Dependency and security refresh
+- Bundle update and resolve any deprecations
+- Run Brakeman + bundler-audit; fix findings
+- Confirm Ruby/Rails versions in `Gemfile` and CI matrix
+
+3) Docker Compose happy path
+- Verify `docker compose build` and `docker compose up`
+- Ensure db setup and migrations run cleanly
+- Add a short "first run" troubleshooting note
+
+4) Test and lint baseline
+- Ensure rspec passes in Docker
+- Align RuboCop config with current Ruby/Rails
+
+5) CI and security pipeline (to be plugged in)
+- Add GitHub Actions workflows for tests, lint, security checks, and image build
+- Make CI the required gate for merges
+
+6) Release discipline
+- Add Dependabot configuration for gems and GitHub Actions
+- Document release notes format (if needed)
+
+7) Branch protections and merge flow
+- Protect `main`: require CI checks and up-to-date branches
+- Enable auto-merge after CI for approved PRs
+
+## Local development
+
+### Requirements
+
+Docker Compose v2 is required (use `docker compose`, not `docker-compose`).
+
+Check your version with:
 ```
-% docker compose version
-Docker Compose version v2.10.2
+$ docker compose version
 ```
 
-## Initial setup
+### Initial setup
 ```
 cp .env.example .env
 docker compose build
 docker compose run --rm web bin/rails db:setup
 ```
 
-## Running the Rails app
+### Run the app
 ```
 docker compose up
 ```
 
-## Running the Rails console
-When the app is already running with `docker-compose` up, attach to the container:
+### Rails console
 ```
-docker compose exec web bin/rails c
+# When the app is already running
+$ docker compose exec web bin/rails c
+
+# Or run a one-off console
+$ docker compose run --rm web bin/rails c
 ```
 
-When no container running yet, start up a new one:
-```
-docker compose run --rm web bin/rails c
-```
-
-## Running tests
+### Run tests
 ```
 docker compose run --rm web bin/rspec
 ```
 
-## Updating gems
+### Update gems
 ```
 docker compose run --rm web bundle update
 docker compose up --build
@@ -64,46 +109,18 @@ docker compose up --build
 
 ## Production build
 
-(adjust tags as needed)
-
-### with [BuildKit](https://docs.docker.com/build/buildkit/)
 ```
-DOCKER_BUILDKIT=1 docker build --tag rails-on-docker --file production.Dockerfile . --load
-```
-
-### With legacy builder (no BuildKit)
-```
-docker build --tag rails-on-docker --file production.Dockerfile .
+DOCKER_BUILDKIT=1 docker build --tag rigoberta --file production.Dockerfile . --load
 ```
 
 ## Credits/References
 
-### Rails with Docker
-* [Quickstart: Compose and Rails](https://docs.docker.com/compose/rails/)
-* [Docker for Rails Developers
-Build, Ship, and Run Your Applications Everywhere](https://pragprog.com/titles/ridocker/docker-for-rails-developers/)
-* [Ruby on Whales:
-Dockerizing Ruby and Rails development](https://evilmartians.com/chronicles/ruby-on-whales-docker-for-ruby-rails-development)
-* [Rails generator to produce Dockerfiles and related files](https://github.com/rubys/dockerfile-rails)
-* [docker init](https://docs.docker.com/engine/reference/commandline/init/)
-* [Rails 7.1 Dockerfile Generator Template](https://github.com/rails/rails/blob/main/railties/lib/rails/generators/rails/app/templates/Dockerfile.tt)
-
-### Rails 7 with importmaps 
-
-* [Alpha preview: Modern JavaScript in Rails 7 without Webpack](https://www.youtube.com/watch?v=PtxZvFnL2i0)
-
-### Rails 7 with hotwire
-
-* [Stimulus 3 + Turbo 7 = Hotwire 1.0](https://world.hey.com/dhh/stimulus-3-turbo-7-hotwire-1-0-9d507133)
-* [Turbo 7](https://world.hey.com/hotwired/turbo-7-0dd7a27f)
-* [Rails 7 will have three great answers to JavaScript in 2021+](https://world.hey.com/dhh/rails-7-will-have-three-great-answers-to-javascript-in-2021-8d68191b)
-* [Hotwire Turbo Replacing Rails UJS](https://www.driftingruby.com/episodes/hotwire-turbo-replacing-rails-ujs)
+- Rails + Docker: Compose and Rails quickstart, Ruby on Whales
+- Hotwire/Stimulus/Turbo references
 
 ## Author
 
-**Ryan Williams**
+Ryan Williams
 
-- <https://www.ryanwilliams.dev>
-- <https://twitter.com/ryanwi>
-- <https://hachyderm.io/@ryanwi>
-- <https://github.com/ryanwi>
+- ryanwilliams.dev
+- github.com/ryanwi
