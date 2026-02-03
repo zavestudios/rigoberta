@@ -1,5 +1,5 @@
 ---
-  title: "Docs"
+  title: "Rigoberta"
 ---
 
   Work in progress.
