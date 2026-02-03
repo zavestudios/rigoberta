@@ -14,6 +14,16 @@ Rigoberta is a narrative reference app: "This is how I build a modern Rails serv
 - A grab-bag of experiments
 - A long-lived monolith
 
+## Part of ZaveStudios Platform
+
+This application runs as a tenant on the [ZaveStudios multi-tenant platform](link).
+
+**Platform integration:**
+- Namespace: `<app-name>` (isolated Kubernetes namespace)
+- Database: `db_<app-name>` tenant in [pg-multitenant](link)
+- Deployment: ArgoCD GitOps via [kubernetes-platform-infrastructure](link)
+- Observability: Shared Prometheus/Grafana
+
 ## Goals
 
 - Be the cleanest, smallest Rails 7 reference service you can fork
