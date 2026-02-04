@@ -34,6 +34,7 @@ group :development, :test do
   gem "debug", "1.11.1", platforms: %i[ mri mingw x64_mingw ]
   gem "rspec-rails"
   gem "rubocop-rspec"
+  gem "rubocop-capybara", ">= 2.21.0"  # Required for RuboCop 1.84+ compatibility
 end
 
 group :development do
