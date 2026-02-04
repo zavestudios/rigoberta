@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.10"
+ruby "3.3.10"
 
 gem "bootsnap", require: false
 gem "brakeman"
@@ -17,7 +17,7 @@ gem "rails", "~> 7.1.6"
 gem "redis", "~> 5.0"
 gem "rexml", ">= 3.3.9"
 gem "rubocop-rails"
-gem "sidekiq", "7.1.6"
+gem "sidekiq", "8.1.0"
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
