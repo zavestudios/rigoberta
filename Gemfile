@@ -8,13 +8,13 @@ ruby "3.3.10"
 gem "bootsnap", require: false
 gem "brakeman"
 gem "bundler-audit"
-gem "image_processing", "~> 1.12"
+gem "image_processing", "~> 1.14"
 gem "importmap-rails"
 gem "jbuilder"
-gem "pg", "~> 1.5"
+gem "pg", "~> 1.6"
 gem "puma", ">= 6.4.3"
-gem "rails", "~> 7.1.6"
-gem "redis", "~> 5.0"
+gem "rails", "~> 8.0"
+gem "redis", "~> 5.4"
 gem "rexml", ">= 3.3.9"
 gem "rubocop-rails"
 gem "sidekiq", "8.1.0"
@@ -31,9 +31,10 @@ gem 'yabeda-sidekiq'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", "1.8.0", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", "1.11.1", platforms: %i[ mri mingw x64_mingw ]
   gem "rspec-rails"
   gem "rubocop-rspec"
+  gem "rubocop-capybara", ">= 2.21.0"  # Required for RuboCop 1.84+ compatibility
 end
 
 group :development do
