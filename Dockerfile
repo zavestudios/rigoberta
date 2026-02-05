@@ -17,6 +17,7 @@ RUN --mount=type=cache,target=/var/cache/apt \
     less \
     git \
     libpq-dev \
+    libyaml-dev \
     postgresql-client \
     libvips \
     curl \
