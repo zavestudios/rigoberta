@@ -4,4 +4,6 @@
   <%= render article.comments %>
 </div>
 
-<%= render "comments/new", article: article %>
+<div id="new_comment">
+  <%= render "comments/new", article: article, comment: Comment.new %>
+</div>

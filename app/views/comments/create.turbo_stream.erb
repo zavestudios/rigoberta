@@ -1,0 +1,9 @@
+<% if @comment.persisted? %>
+  <%= turbo_stream.replace "new_comment" do %>
+    <%= render "comments/new", article: @article, comment: Comment.new %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.replace "new_comment" do %>
+    <%= render "comments/new", article: @article, comment: @comment %>
+  <% end %>
+<% end %>
