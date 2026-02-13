@@ -31,6 +31,17 @@ This application runs as a tenant on the [ZaveStudios multi-tenant platform](lin
 - Make CI, security, and Docker part of the happy path
 - Document the "why" as much as the "how"
 
+## Zave Value Filter (Decision Gate)
+
+Every planned change in this app must satisfy at least one of these:
+
+- Improves a ZaveStudios platform capability
+- Teaches a reusable pattern for tenant apps
+- Reduces operational risk (security, observability, or deployment reliability)
+- Speeds up delivery for future ZaveStudios services
+
+If a task does not pass this filter, do not prioritize it.
+
 ## Tech stack (current)
 
 - Rails 7
@@ -148,4 +159,3 @@ Ryan Williams
 
 - ryanwilliams.dev
 - github.com/ryanwi
-

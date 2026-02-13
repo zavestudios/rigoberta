@@ -1,5 +1,10 @@
-<%= form_with model: [ article, Comment.new ] do |form| %>
+<%= form_with model: [ article, comment ] do |form| %>
   Your comment:<br>
   <%= form.text_area :content, size: "20x5" %>
+  <% if comment.errors.any? %>
+    <div>
+      <%= comment.errors.full_messages.to_sentence %>
+    </div>
+  <% end %>
   <%= form.submit %>
 <% end %>
