@@ -8,7 +8,7 @@ ruby "3.3.10"
 gem "bootsnap", require: false
 gem "brakeman"
 gem "bundler-audit"
-gem "image_processing", "~> 1.14"
+gem "image_processing", "~> 2.1"
 gem "importmap-rails"
 gem "jbuilder"
 gem "pg", "~> 1.6"
